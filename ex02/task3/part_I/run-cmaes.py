@@ -44,10 +44,10 @@ def main():
     e["Distributions"][2]["Minimum"] = -0.1
     e["Distributions"][2]["Maximum"] = +0.1
 
-    e["Distributions"][2]["Name"] = "Uniform 0 5"
-    e["Distributions"][2]["Type"] = "Univariate/Uniform"
-    e["Distributions"][2]["Minimum"] = +0.0
-    e["Distributions"][2]["Maximum"] = +5.0
+    e["Distributions"][3]["Name"] = "Uniform 0 5"
+    e["Distributions"][3]["Type"] = "Univariate/Uniform"
+    e["Distributions"][3]["Minimum"] = +0.0
+    e["Distributions"][3]["Maximum"] = +5.0
 
     # Configuring the problem's variables
     e["Variables"][0]["Name"] = "D0"
