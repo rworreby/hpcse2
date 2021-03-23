@@ -14,18 +14,16 @@ using CMA-ES and Korali.
 
 
 # Import the computational model
-import sys
-sys.path.append('./_model')
-from model import *
+# import sys
+from model import model
+
+import korali
 
 
-# TODO: Start Korali's Engine
-# ...
+k = korali.Engine()
+e = korali.Experiment()
 
-
-# TODO: Create new experiment
-# ...
-
+e["Problem"]["Objective Function"] = model
 
 # TODO: Define the problem:
 # - Type of problem: Optimization
@@ -53,4 +51,3 @@ e["Solver"]["Termination Criteria"]["Max Generations"] = 100
 
 # TODO: Run Korali
 # ...
-
