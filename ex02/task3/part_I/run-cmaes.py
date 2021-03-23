@@ -11,15 +11,13 @@ using CMA-ES and Korali.
 
 import sys
 sys.path.append('./_model')
-from model import *
 
+from model import model_3p, getReferenceData, getReferencePoints
 
 
 # TODO: Implement korali's configuration
 # by adapting examples/example_2/run-cmaes.py
 # ...
-
-
 
 k = korali.Engine()
 k.run(e)
