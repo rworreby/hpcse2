@@ -20,17 +20,19 @@ def main():
     k = korali.Engine()
     e = korali.Experiment()
 
+    e["Random Seed"] = 0xC0FEE
+
     e["Problem"]["Type"] = "Optimization"
     e["Problem"]["Objective Function"] = model
 
     # Defining the problem's variables.
     e["Variables"][0]["Name"] = "x0"
-    e["Variables"][0]["Lower Bound"] = -10.0
-    e["Variables"][0]["Upper Bound"] = +10.0
+    e["Variables"][0]["Lower Bound"] = -1.5
+    e["Variables"][0]["Upper Bound"] = +2.0
 
     e["Variables"][1]["Name"] = "y0"
-    e["Variables"][1]["Lower Bound"] = -10.0
-    e["Variables"][1]["Upper Bound"] = +10.0
+    e["Variables"][1]["Lower Bound"] = -0.5
+    e["Variables"][1]["Upper Bound"] = +3.0
 
     # Choose the solver: CMAES
     e["Solver"]["Type"] = "Optimizer/CMAES"
