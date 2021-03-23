@@ -25,12 +25,12 @@ def main():
 
     # Defining the problem's variables.
     e["Variables"][0]["Name"] = "x0"
-    e["Variables"][0]["Lower Bound"] = -3.0
-    e["Variables"][0]["Upper Bound"] = +3.0
+    e["Variables"][0]["Lower Bound"] = -10.0
+    e["Variables"][0]["Upper Bound"] = +10.0
 
     e["Variables"][1]["Name"] = "y0"
-    e["Variables"][1]["Lower Bound"] = -3.0
-    e["Variables"][1]["Upper Bound"] = +3.0
+    e["Variables"][1]["Lower Bound"] = -10.0
+    e["Variables"][1]["Upper Bound"] = +10.0
 
     # Choose the solver: CMAES
     e["Solver"]["Type"] = "Optimizer/CMAES"
@@ -39,6 +39,10 @@ def main():
     e["Solver"]["Population Size"] = 32
     e["Solver"]["Termination Criteria"]["Min Value Difference Threshold"] = 1e-14
     e["Solver"]["Termination Criteria"]["Max Generations"] = 100
+
+    e["File Output"]["Enabled"] = True
+    e["File Output"]["Path"] = '_korali_result_cmaes'
+    e["File Output"]["Frequency"] = 5
 
     k.run(e)
 
