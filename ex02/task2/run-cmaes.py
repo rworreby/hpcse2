@@ -8,46 +8,40 @@ In this exercise we optimize the Rosenbrock function,
 using CMA-ES and Korali.
 """
 
+import sys
 
-# TODO: import Korali's engine
-# ...
+sys.path.append('./_model')
 
-
-# Import the computational model
-# import sys
 from model import model
-
 import korali
 
 
-k = korali.Engine()
-e = korali.Experiment()
+def main():
+    k = korali.Engine()
+    e = korali.Experiment()
 
-e["Problem"]["Objective Function"] = model
+    e["Problem"]["Type"] = "Optimization"
+    e["Problem"]["Objective Function"] = model
 
-# TODO: Define the problem:
-# - Type of problem: Optimization
-# - Objective function: the model function
-# ...
+    # Defining the problem's variables.
+    e["Variables"][0]["Name"] = "x0"
+    e["Variables"][0]["Lower Bound"] = -3.0
+    e["Variables"][0]["Upper Bound"] = +3.0
 
+    e["Variables"][1]["Name"] = "y0"
+    e["Variables"][1]["Lower Bound"] = -3.0
+    e["Variables"][1]["Upper Bound"] = +3.0
 
-# Initialize random seed
-e["Random Seed"] = 0xC0FEE
+    # Choose the solver: CMAES
+    e["Solver"]["Type"] = "Optimizer/CMAES"
 
+    # Configuring CMA-ES parameters
+    e["Solver"]["Population Size"] = 32
+    e["Solver"]["Termination Criteria"]["Min Value Difference Threshold"] = 1e-14
+    e["Solver"]["Termination Criteria"]["Max Generations"] = 100
 
-# TODO: Define all variables and their respective lower and upper bounds
-# ...
-
-
-# Choose the solver: CMAES
-e["Solver"]["Type"] = "Optimizer/CMAES"
-
-
-# Configuring CMA-ES parameters
-e["Solver"]["Population Size"] = 32
-e["Solver"]["Termination Criteria"]["Min Value Difference Threshold"] = 1e-14
-e["Solver"]["Termination Criteria"]["Max Generations"] = 100
+    k.run(e)
 
 
-# TODO: Run Korali
-# ...
+if __name__ == '__main__':
+    main()
