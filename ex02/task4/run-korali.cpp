@@ -39,8 +39,9 @@ int main(int argc, char* argv[])
     size_t n_candles = atoi(argv[1]);
     printf("Running with %d candle(s)\n", n_candles);
 
+    auto k = korali::Engine();
     auto e = korali::Experiment();
-    auto p = heat2DInit(n_candles);
+    auto p = heat2DInit(&argc, &argv);
 
     e["Problem"]["Type"] = "Bayesian/Reference";
     e["Problem"]["Likelihood Model"] = "Normal";
@@ -228,7 +229,7 @@ int main(int argc, char* argv[])
             exit(1);
     }
 
-    auto k = korali::Engine();
+    // auto k = korali::Engine();
     k.run(e);
 
     return 0;
