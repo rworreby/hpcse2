@@ -1,16 +1,17 @@
 #!/usr/bin/env python
-    
+
 
 def model_3p(s, X):
     D0 = s["Parameters"][0]
     k1 = s["Parameters"][1]
     k2 = s["Parameters"][2]
-    sig = s["Parameters"][3]
+    k3 = s["Parameters"][3]
+    sig = s["Parameters"][4]
 
     s["Reference Evaluations"] = []
     s["Standard Deviation"] = []
     for x in X:
-        s["Reference Evaluations"] += [D0 + k1*x + k2*x*x]
+        s["Reference Evaluations"] += [D0 + k1*x + k2*x*x + k3*x*x*x]
         s["Standard Deviation"] += [sig]
 
 

@@ -62,8 +62,11 @@ def main():
     e["Variables"][2]["Name"] = "k2"
     e["Variables"][2]["Prior Distribution"] = "Uniform 01 01"
 
-    e["Variables"][3]["Name"] = "sig"
-    e["Variables"][3]["Prior Distribution"] = "Uniform 0 5"
+    e["Variables"][3]["Name"] = "k3"
+    e["Variables"][3]["Prior Distribution"] = "Uniform 01 01"
+
+    e["Variables"][4]["Name"] = "sig"
+    e["Variables"][4]["Prior Distribution"] = "Uniform 0 5"
 
     e["Store Sample Information"] = True
 
