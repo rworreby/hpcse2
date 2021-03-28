@@ -55,23 +55,15 @@ def main():
     # Configuring the problem's variables
     e["Variables"][0]["Name"] = "D0"
     e["Variables"][0]["Prior Distribution"] = "Uniform 4 12"
-    e["Variables"][0]["Initial Value"] = +8.0
-    e["Variables"][0]["Initial Standard Deviation"] = +0.8
 
     e["Variables"][1]["Name"] = "k1"
     e["Variables"][1]["Prior Distribution"] = "Uniform 05 05"
-    e["Variables"][1]["Initial Value"] = +0.0
-    e["Variables"][1]["Initial Standard Deviation"] = +0.05
 
     e["Variables"][2]["Name"] = "k2"
     e["Variables"][2]["Prior Distribution"] = "Uniform 01 01"
-    e["Variables"][2]["Initial Value"] = +0.0
-    e["Variables"][2]["Initial Standard Deviation"] = +0.01
 
     e["Variables"][3]["Name"] = "sig"
     e["Variables"][3]["Prior Distribution"] = "Uniform 0 5"
-    e["Variables"][3]["Initial Value"] = +2.5
-    e["Variables"][3]["Initial Standard Deviation"] = +0.5
 
     e["Store Sample Information"] = True
 
