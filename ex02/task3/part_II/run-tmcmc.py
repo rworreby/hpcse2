@@ -11,7 +11,7 @@ using TMCMC and Korali.
 
 import sys
 sys.path.append('./_model')
-from model import *
+from model import model_3p, getReferenceData, getReferencePoints
 
 
 
