@@ -23,7 +23,7 @@ def main():
     e["Problem"]["Type"] = "Bayesian/Reference"
     e["Problem"]["Likelihood Model"] = "Normal"
     e["Problem"]["Reference Data"] = getReferenceData()
-    e["Problem"]["Computational Model"] = lambda sampleData: model(sampleData, getReferencePoints())
+    e["Problem"]["Computational Model"] = lambda sampleData: model_3p(sampleData, getReferencePoints())
 
     # Configuring TMCMC parameters
     e["Solver"]["Type"] = "Sampler/TMCMC"
