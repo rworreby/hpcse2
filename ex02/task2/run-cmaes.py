@@ -20,7 +20,7 @@ def main():
     k = korali.Engine()
     e = korali.Experiment()
 
-    e["Random Seed"] = 0xC0FEE
+    # e["Random Seed"] = 0xC0FED
 
     e["Problem"]["Type"] = "Optimization"
     e["Problem"]["Objective Function"] = model
@@ -38,13 +38,13 @@ def main():
     e["Solver"]["Type"] = "Optimizer/CMAES"
 
     # Configuring CMA-ES parameters
-    e["Solver"]["Population Size"] = 32
+    e["Solver"]["Population Size"] = 48
     e["Solver"]["Termination Criteria"]["Min Value Difference Threshold"] = 1e-14
-    e["Solver"]["Termination Criteria"]["Max Generations"] = 100
+    e["Solver"]["Termination Criteria"]["Max Generations"] = 200
 
-    e["File Output"]["Enabled"] = True
-    e["File Output"]["Path"] = '_korali_result_cmaes'
-    e["File Output"]["Frequency"] = 5
+    # e["File Output"]["Enabled"] = True
+    # e["File Output"]["Path"] = '_korali_result_cmaes'
+    # e["File Output"]["Frequency"] = 5
 
     k.run(e)
 
