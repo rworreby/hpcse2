@@ -1,16 +1,17 @@
-BINARIES = run-korali
 KORALICXX=$(shell python3 -m korali.cxx --compiler)
 KORALICFLAGS=`python3 -m korali.cxx --cflags`
 KORALILIBS=`python3 -m korali.cxx --libs`
+BINARIES = ncandles
+OBJECTS = _model/heat2d.o
 
 .SECONDARY:
-.PHONY: all
+	.PHONY: all
 all: $(BINARIES)
 
-$(BINARIES) : % : %.o _model/heat2d.o
+$(BINARIES) : % : %.o $(OBJECTS)
 	$(KORALICXX) -o $@ $^ $(KORALILIBS)
 
-_model/%.o:
+model/%.o:
 	$(MAKE) -C _model all
 
 %.o: %.cpp
@@ -20,3 +21,4 @@ _model/%.o:
 clean:
 	$(MAKE) -C _model clean
 	$(RM) $(BINARIES) *.o *.ti *.optrpt *.txt
+
