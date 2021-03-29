@@ -71,9 +71,9 @@ def main():
     e["Variables"][3]["Initial Standard Deviation"] = +0.5
 
     e["Solver"]["Type"] = "Optimizer/CMAES"
-    e["Solver"]["Population Size"] = 32
+    e["Solver"]["Population Size"] = 64
     e["Solver"]["Termination Criteria"]["Min Value Difference Threshold"] = 1e-14
-    e["Solver"]["Termination Criteria"]["Max Generations"] = 100
+    e["Solver"]["Termination Criteria"]["Max Generations"] = 200
 
     e["File Output"]["Enabled"] = True
     e["File Output"]["Path"] = '_korali_result_cmaes'
