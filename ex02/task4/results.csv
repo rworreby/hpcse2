@@ -1,0 +1,8 @@
+[Korali] Annealing Exponent:          1.000e+00.
+[Korali] Acceptance Rate (proposals / selections): (85.90% / 63.42%)
+[Korali] Coefficient of Variation: 100.00%
+[Korali] logEvidence: -168.731
+[Korali] --------------------------------------------------------------------
+[Korali] sampler/TMCMC finished correctly.
+[Korali] Termination Criterion Met: TMCMC['Target Annealing Exponent'] = 1.000000.
+[Korali] Final Generation: 12
