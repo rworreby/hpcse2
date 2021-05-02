@@ -39,7 +39,8 @@ int main(int argc, char **argv)
                     MPI_C_BOOL, // datatype
                     0, // source
                     1, //tag
-                    MPI_COMM_WORLD // communicator
+                    MPI_COMM_WORLD, // communicator
+                    MPI_STATUS_IGNORE
                 );
             }
         }
