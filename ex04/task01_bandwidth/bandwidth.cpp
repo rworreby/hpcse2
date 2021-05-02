@@ -49,6 +49,7 @@ int main(int argc, char **argv)
         double time = (endtime - starttime) / loop_repetitions;
         std::cout << i << "," << time << std::endl;
     }
-
+    
+    MPI_Finalize();
     return 0;
 }
