@@ -11,13 +11,15 @@ int main(int argc, char **argv)
 
     for (size_t i = 1; i <= 16777216; i*=2) {
         double *buf = (double *) malloc( i * sizeof(double) );
-        std::cout << "Running measurements for " << i << '\n';
-        double starttime = MPI_Wtime();
+        if (!rank) std::cout << "Running measurements for " << i << '\n';
 
         int loop_repetitions = 1024 / i;
         if (loop_repetitions < 1){
             loop_repetitions = 1;
         }
+
+
+        double starttime = MPI_Wtime();
 
         for (size_t k = 0; k < loop_repetitions; k++) {
 
@@ -46,10 +48,12 @@ int main(int argc, char **argv)
         }
 
         double endtime = MPI_Wtime();
-        double time = (endtime - starttime) / loop_repetitions;
-        std::cout << i << "," << time << std::endl;
+        if (!rank) {
+            double time = (endtime - starttime) / loop_repetitions;
+            std::cout << i << "," << time << std::endl;
+        }
     }
-    
+
     MPI_Finalize();
     return 0;
 }
