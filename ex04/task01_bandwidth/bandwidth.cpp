@@ -25,7 +25,7 @@ int main(int argc, char **argv)
                 MPI_Send(
                     buf,
                     i,
-                    MPI_BOOL,
+                    MPI_C_BOOL,
                     1,
                     1,
                     MPI_COMM_WORLD
@@ -36,7 +36,7 @@ int main(int argc, char **argv)
                 MPI_Recv(
                     buf, // buffer
                     i, // count
-                    MPI_BOOL, // datatype
+                    MPI_C_BOOL, // datatype
                     0, // source
                     1, //tag
                     MPI_COMM_WORLD // communicator
