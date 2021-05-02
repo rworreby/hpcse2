@@ -9,7 +9,7 @@ int main(int argc, char **argv)
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
-    for (size_t i = 1; i <= 16777216; i*=2) {.
+    for (size_t i = 1; i <= 16777216; i*=2) {
         double *buf = (double *) malloc( i * sizeof(double) );
         std::cout << "Running measurements for " << i << '\n';
         double starttime = MPI_Wtime();
