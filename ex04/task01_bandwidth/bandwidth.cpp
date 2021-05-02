@@ -14,7 +14,7 @@ int main(int argc, char **argv)
         std::cout << "Running measurements for " << i << '\n';
         double starttime = MPI_Wtime();
 
-        int loop_repetitions = 1024 / n;
+        int loop_repetitions = 1024 / i;
         if (loop_repetitions < 1){
             loop_repetitions = 1;
         }
