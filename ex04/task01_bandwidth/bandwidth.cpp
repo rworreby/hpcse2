@@ -11,9 +11,9 @@ int main(int argc, char **argv)
 
     for (size_t i = 1; i <= 16777216; i*=2) {
         double *buf = (double *) malloc( i * sizeof(double) );
-        if (!rank) std::cout << "Running measurements for " << i << '\n';
+        //if (!rank) std::cout << "Running measurements for " << i << '\n';
 
-        int loop_repetitions = 1024 / i;
+        int loop_repetitions = 1024 * 1024 / i;
         if (loop_repetitions < 1){
             loop_repetitions = 1;
         }
