@@ -29,7 +29,7 @@ int main(int argc, char **argv)
                     1,
                     1,
                     MPI_COMM_WORLD
-                )
+                );
             }
 
             if (rank == 1) {
@@ -40,7 +40,7 @@ int main(int argc, char **argv)
                     0, // source
                     1, //tag
                     MPI_COMM_WORLD // communicator
-                )
+                );
             }
         }
 
