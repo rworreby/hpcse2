@@ -13,16 +13,22 @@ __global__ void computeForcesKernel(int N, const double3 *p, double3 *f) {
         double f_temp_x = 0.0;
         double f_temp_y = 0.0;
         double f_temp_z = 0.0;
+        double p_idx_x = p[idx].x;
+        double p_idx_y = p[idx].y;
+        double p_idx_z = p[idx].z;
+
         for (int i = 0; i < N; ++i) {
             if(i != idx){
-                double dx = p[i].x - p[idx].x;
-                double dy = p[i].y - p[idx].y;
-                double dz = p[i].z - p[idx].z;
+                double dx = p[i].x - p_idx_x;
+                double dy = p[i].y - p_idx_x;
+                double dz = p[i].z - p_idx_x;
                 double r = sqrt(dx * dx + dy * dy + dz * dz);
                 double inv_r = 1.0 / r;
-                f_temp_x += dx * inv_r * inv_r * inv_r;
-                f_temp_y += dy * inv_r * inv_r * inv_r;
-                f_temp_z += dz * inv_r * inv_r * inv_r;
+                double inv_r_3 = inv_r * inv_r * inv_r;
+
+                f_temp_x += dx * inv_r_3;
+                f_temp_y += dy * inv_r_3;
+                f_temp_z += dz * inv_r_3;
             }
         }
         f[idx].x = f_temp_x;
